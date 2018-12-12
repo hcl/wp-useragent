@@ -319,11 +319,13 @@ function wpua_get_icon($title, $code, $type)
 
 		// Set the img to display browser/os/device. Ex. http://blogurl/plugins/plugin-name/size/net-os-device/code.png
 		$img_src = $wpua_img_url.$wpua_icon_size.$type.$code.'.png';
+		$wpua_icon_size_2x = '24';
+		$img2x_src = $wpua_img_url.$wpua_icon_size_2x.$type.$code.'.png';
 
 		// Select the correct closing tag based on doctype
 		$img_close = ($wpua_doctype === 'html') ? '' : ' /';
 
-		return "<img src='$img_src' title='$title' $img_style alt='$title' height='$wpua_icon_size' width='$wpua_icon_size'$img_close>";
+		return "<img src='$img_src' srcset='$img2x_src 2x' title='$title' $img_style alt='$title' height='$wpua_icon_size' width='$wpua_icon_size'$img_close>";
 	}
 
 	return '';
